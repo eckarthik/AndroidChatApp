@@ -2,7 +2,7 @@
 function attack_filter($string)
 {
 if (get_magic_quotes_gpc()) $string = stripslashes($string);
-return mysql_real_escape_string($string);
+return mysqli_real_escape_string($string);
 }
 $dbhost = "localhost";
 $dbuser = "root";
