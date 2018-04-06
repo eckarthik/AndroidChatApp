@@ -16,7 +16,7 @@ if(isset($_POST['toname']) && isset($_POST['message']) && isset($_POST['fromname
     $fromname = $_POST['fromname'];
     $message = attack_filter($connection,$_POST['message']);
     $timestamp = $_POST['timestamp'];
-    $query = mysqli_query($connection,"INSERT INTO chatmessages(toname,fromname,message,timestamp) VALUES('$toname','$fromname','$message','$timestamp')");
+    $query = mysqli_query($connection,"INSERT INTO chatmessages(name,fromname,message,timestamp) VALUES('$toname','$fromname','$message','$timestamp')");
     if($query)
     {
         $response["success"] = true;
