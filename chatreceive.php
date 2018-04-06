@@ -9,7 +9,7 @@ if(isset($_POST['name']))
 {
     $name = $_POST['name'];
     $query = mysqli_query($connection,"SELECT * FROM chatmessages where name='$name' ORDER by timestamp DESC");
-    $arrayresult = mysqli_fetch_row($query,MYSQLI_BOTH);
+    $arrayresult = mysqli_fetch_array($query,MYSQLI_BOTH);
     $messageinDB = $arrayresult[1];
     $timestampinDB = $arrayresult[2];
     if(mysqli_num_rows($query)==1)
