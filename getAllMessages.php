@@ -16,11 +16,11 @@ if(isset($_POST['name']) && isset($_POST['friendname']))
     {
         if($row[0]==$name)
         {
-            $messages["$row[1]"] = array($row[1],$name,$friendname);
+            $messages["$row[2]"] = array($row[1],$name,$friendname);
         }
         else
         {
-            $messages["$row[1]"] = array($row[1],$friendname,$name);
+            $messages["$row[2]"] = array($row[1],$friendname,$name);
         }
         
     }
