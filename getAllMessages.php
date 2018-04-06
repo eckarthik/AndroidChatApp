@@ -10,7 +10,7 @@ if(isset($_POST['name']) && isset($_POST['friendname']))
 {
     $name = $_POST['name'];
     $friendname = $_POST['friendname'];
-    $query = mysqli_query($connection,"SELECT message,timestamp FROM chatmessages WHERE name='$name'");
+    $query = mysqli_query($connection,"SELECT message,timestamp FROM chatmessages WHERE name='$name' ORDER BY timestamp ASC");
     $messages = array();
     while ($row=mysqli_fetch_row($query))
     {
@@ -18,7 +18,7 @@ if(isset($_POST['name']) && isset($_POST['friendname']))
         
     }
      mysqli_free_result($query);
-    $query = mysqli_query($connection,"SELECT message,timestamp FROM chatmessages WHERE name='$friendname'");
+    $query = mysqli_query($connection,"SELECT message,timestamp FROM chatmessages WHERE name='$friendname' ORDER BY timestamp ASC");
     while ($row=mysqli_fetch_row($query))
     {
         $messages["$row[1]"] = array($row[0],$name);
@@ -26,7 +26,7 @@ if(isset($_POST['name']) && isset($_POST['friendname']))
     }
      mysqli_free_result($query);
      $sorted = sort($messages);
-     json_encode($messages);
+     echo json_encode($messages);
 }
 else
 {
