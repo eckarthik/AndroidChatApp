@@ -12,7 +12,7 @@ if(isset($_POST['name']))
     $arrayresult = mysqli_fetch_array($query,MYSQLI_BOTH);
     $messageinDB = $arrayresult[1];
     $timestampinDB = $arrayresult[2];
-    if(mysqli_num_rows($query)==1)
+    if($query)
     {
         $response["success"] = true;
         $response["message"] = $messageinDB;
