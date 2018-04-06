@@ -21,7 +21,7 @@ if(isset($_POST['name']) && isset($_POST['password']))
     {
         $query = mysqli_query($connection,"INSERT into chatusers(name,password,deviceid) VALUES('$name','$password','$deviceid')");
         $response = array();
-        if($query && $query2)
+        if($query)
         {
             $response["success"] = true;
         }
