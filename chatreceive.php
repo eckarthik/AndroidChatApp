@@ -10,6 +10,7 @@ if(isset($_POST['name']))
     $name = $_POST['name'];
     $lastseentimestamp = $_POST['currentuseractivetimestamp'];
     $query3 = mysqli_query($connection,"UPDATE chatusers SET lastseen='$lastseentimestamp' WHERE name='$name'");
+    $response = array();
     if($query3)
     {
         $response["lastseenupdate"] = "Success";
