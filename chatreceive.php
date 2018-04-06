@@ -8,6 +8,7 @@ mysqli_select_db($connection,$dbname) or die("Unable to select DB".mysqli_error(
 if(isset($_POST['name']))
 {
     $name = $_POST['name'];
+    $friendname = $_POST['friendname'];
     $lastseentimestamp = $_POST['currentuats'];
     $query3 = mysqli_query($connection,"UPDATE chatusers SET lastseen='$lastseentimestamp' WHERE name='$name'");
     $response = array();
