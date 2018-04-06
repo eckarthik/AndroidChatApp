@@ -26,7 +26,7 @@ if(isset($_POST['name']))
     $timestampinDB = $arrayresult[2];
     if($query)
     {
-        $query2 = mysqli_query($connection,"SELECT * FROM chatusers WHERE name='$name'");
+        $query2 = mysqli_query($connection,"SELECT * FROM chatusers WHERE name='$friendname'");
         $arrayresult2 = mysqli_fetch_array($query2,MYSQLI_BOTH);
         $response["lastseen"] = $arrayresult2[3];
         $response["success"] = true;
