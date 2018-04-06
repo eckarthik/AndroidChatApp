@@ -1,4 +1,9 @@
 <?php
+function attack_filter($string)
+{
+if (get_magic_quotes_gpc()) $string = stripslashes($string);
+return mysql_real_escape_string($string);
+}
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "KartProj96$";
@@ -8,7 +13,7 @@ mysqli_select_db($connection,$dbname) or die("Unable to select DB".mysqli_error(
 if(isset($_POST['name']) && isset($_POST['message']))
 {
     $name = $_POST['name'];
-    $message = $_POST['message'];
+    $message = attack_filter($_POST['message']);
     $timestamp = $_POST['timestamp'];
     $query = mysqli_query($connection,"INSERT INTO chatmessages(name,message,timestamp) VALUES('$name','$message','$timestamp')");
     if($query)
