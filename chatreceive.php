@@ -5,11 +5,9 @@ $dbpass = "KartProj96$";
 $dbname = "chatapp";
 $connection = mysqli_connect($dbhost,$dbuser,$dbpass) or die ("Unable to connect to MySQL DB:".mysqli_error($connection));
 mysqli_select_db($connection,$dbname) or die("Unable to select DB".mysqli_error($connection));
-if(isset($_POST['name']) && isset($_POST['message']))
+if(isset($_POST['name']))
 {
     $name = $_POST['name'];
-    $message = $_POST['message'];
-    $timestamp = $_POST['timestamp'];
     $query = mysqli_query($connection,"SELECT * FROM chatmessages where name='$name' ORDER by timestamp DESC");
     $arrayresult = mysqli_fetch_row($query,MYSQLI_BOTH);
     $messageinDB = $arrayresult[1];
