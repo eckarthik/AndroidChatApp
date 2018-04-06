@@ -26,7 +26,7 @@ if(isset($_POST['name']))
     if($query)
     {
         $query2 = mysqli_query($connection,"SELECT * FROM chatusers WHERE name='$name'");
-        $arrayresult2 = mysql_fetch_array($query2,MYSQLI_BOTH);
+        $arrayresult2 = mysqli_fetch_array($query2,MYSQLI_BOTH);
         $response["lastseen"] = $arrayresult2[3];
         $response["success"] = true;
         $response["message"] = $messageinDB;
