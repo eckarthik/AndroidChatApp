@@ -10,7 +10,7 @@ if(isset($_POST['name']) && isset($_POST['message']))
     $name = $_POST['name'];
     $message = $_POST['message'];
     $timestamp = $_POST['timestamp'];
-    $query = mysqli_query($connection,"INSERT INTO chatmessages(name,message,timestamp) VALUES('$name','$messages','$timestamp')");
+    $query = mysqli_query($connection,"INSERT INTO chatmessages(name,message,timestamp) VALUES('$name','$message','$timestamp')");
     if($query)
     {
         $response["success"] = true;
